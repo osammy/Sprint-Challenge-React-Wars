@@ -26,11 +26,14 @@ const App = () => {
         .get(`https://swapi.co/api/people/?page=${pageNumber}`)
         .then(response => {
           const people = response.data;
-          console.log(pageNumber);
+          
 
           setPeople(people.results);
           setdisablePrev(true);
           setdisableNext(false);
+          pagesCount = people.count;
+          const maxPages = Math.ceil(pagesCount / noOfPeoplePerPage)
+          console.log("pageNumber = "+pageNumber +"Max = "+maxPages);
           if (pageNumber > 1) setdisablePrev(false);
           if (pageNumber >= Math.ceil(pagesCount / noOfPeoplePerPage)) setdisableNext(true);
           console.log(people.results.length);
