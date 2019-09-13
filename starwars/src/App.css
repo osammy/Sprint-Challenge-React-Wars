@@ -20,3 +20,12 @@
   display:flex;
   justify-content:center;
 }
+
+.page-loader {
+  /*style={{display:"flex",justifyContent:"center",alignItems:"center",height:"100vh"}}*/
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+}

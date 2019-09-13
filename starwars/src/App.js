@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Persons from "./components/Persons/Persons";
 import axios from "axios";
 import PaginationButtons from "./components/PaginationButtons/PaginationButtons";
+import PageLoader from "./components/Loader/Loader";
 import "./App.css";
 
 const App = () => {
@@ -25,11 +26,13 @@ const App = () => {
         .get(`https://swapi.co/api/people/?page=${pageNumber}`)
         .then(response => {
           const people = response.data;
-          console.log(people);
+          console.log(pageNumber);
 
           setPeople(people.results);
+          setdisablePrev(true);
+          setdisableNext(false);
           if (pageNumber > 1) setdisablePrev(false);
-          //  if(pageNumber > 9) setdisableNext(true)
+          if (pageNumber >= Math.ceil(pagesCount / noOfPeoplePerPage)) setdisableNext(true);
           console.log(people.results.length);
         })
         .catch(err => {
@@ -55,7 +58,7 @@ const App = () => {
     }
     setPageNumber(pageNumber - 1);
   }
-
+  if(people.length === 0) return <PageLoader />
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
