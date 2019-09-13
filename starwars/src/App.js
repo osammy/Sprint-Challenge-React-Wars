@@ -26,17 +26,15 @@ const App = () => {
         .get(`https://swapi.co/api/people/?page=${pageNumber}`)
         .then(response => {
           const people = response.data;
-          
-
           setPeople(people.results);
           setdisablePrev(true);
           setdisableNext(false);
           pagesCount = people.count;
           const maxPages = Math.ceil(pagesCount / noOfPeoplePerPage)
-          console.log("pageNumber = "+pageNumber +"Max = "+maxPages);
+          // console.log("pageNumber = "+pageNumber +"Max = "+maxPages);
           if (pageNumber > 1) setdisablePrev(false);
           if (pageNumber >= Math.ceil(pagesCount / noOfPeoplePerPage)) setdisableNext(true);
-          console.log(people.results.length);
+          // console.log(people.results.length);
         })
         .catch(err => {
           console.log(err);
@@ -46,26 +44,17 @@ const App = () => {
   );
 
   function next() {
-    if (pageNumber >= Math.ceil(pagesCount / noOfPeoplePerPage)) {
-      alert("returning max page length");
-      return;
-    }
-
     setPageNumber(pageNumber + 1);
   }
 
   function prev() {
-    if (pageNumber <= 1) {
-      alert("invalid page number");
-      return;
-    }
     setPageNumber(pageNumber - 1);
   }
   if(people.length === 0) return <PageLoader />
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      <div className="container">
+      <div className="card-container">
         <Persons people={people} />
       </div>
         <PaginationButtons

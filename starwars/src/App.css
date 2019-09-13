@@ -13,12 +13,13 @@
   flex-wrap:wrap;
 }
 
-.container {
+.card-container {
   width:100%;
   margin: 0 auto;
   text-align:center;
   display:flex;
   justify-content:center;
+  padding-bottom:50px;
 }
 
 .page-loader {
@@ -28,4 +29,12 @@
   justify-content:center;
   align-items:center;
 
+}
+
+.pagination-btn {
+  display:flex;
+  justify-content:space-between;
+  width:100px;
+  margin:0 auto;
+  /*padding-top:100px;*/
 }
