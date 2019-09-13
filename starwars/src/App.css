@@ -6,3 +6,15 @@
   text-shadow: 1px 1px 5px #fff;
 }
 /* write your parent styles in here for your App.js */
+.App-people-container {
+  width:1200px;
+  display:flex;
+  justify-content: space-between;
+  flex-wrap:wrap;
+}
+
+.container {
+  width:1400px;
+  margin: 0 auto;
+  border:1px solid black;
+}
