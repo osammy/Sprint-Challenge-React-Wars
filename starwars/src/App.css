@@ -6,3 +6,35 @@
   text-shadow: 1px 1px 5px #fff;
 }
 /* write your parent styles in here for your App.js */
+.App-people-container {
+  width:1200px;
+  display:flex;
+  justify-content: space-between;
+  flex-wrap:wrap;
+}
+
+.card-container {
+  width:100%;
+  margin: 0 auto;
+  text-align:center;
+  display:flex;
+  justify-content:center;
+  padding-bottom:50px;
+}
+
+.page-loader {
+  /*style={{display:"flex",justifyContent:"center",alignItems:"center",height:"100vh"}}*/
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+}
+
+.pagination-btn {
+  display:flex;
+  justify-content:space-between;
+  width:100px;
+  margin:0 auto;
+  /*padding-top:100px;*/
+}
